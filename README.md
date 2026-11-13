@@ -40,7 +40,7 @@ This project includes a Render Blueprint in `render.yaml`. To deploy:
    python manage.py createsuperuser
    ```
 
-Render runs `build.sh` during deploy. It applies database migrations, loads the example records, and collects static assets. The app reads the PostgreSQL connection from Render's `DATABASE_URL`; do not put production credentials in the repository. The web service is configured to run with Gunicorn and to use HTTPS-aware Django settings.
+Render selects Python from `.python-version` and runs `build.sh` during deploy. The script installs dependencies, applies database migrations, loads the example records, and collects static assets. The app reads the PostgreSQL connection from Render's `DATABASE_URL`; do not put production credentials in the repository. The web service is configured to run with Gunicorn and to use HTTPS-aware Django settings.
 
 The Blueprint uses Render's free-plan settings as a starting point. Free database availability, lifetime, and persistence limits can change; choose a suitable paid database and configure backups before storing important information.
 
