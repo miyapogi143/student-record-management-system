@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in · Campus Records</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="/static/css/style.css"></head>
+<body class="login-bg"><div class="login-card"><div class="brand-mark">CR</div><h3 class="fw-bold mt-3">Campus Records</h3><p class="text-muted mb-4">Student Record Management System</p>
+{% if form.errors %}<div class="alert alert-danger">Invalid username or password. Please try again.</div>{% endif %}
+<form method="post">{% csrf_token %}<label class="form-label">Username</label><input class="form-control mb-3" name="username" autofocus required><label class="form-label">Password</label><input class="form-control mb-4" type="password" name="password" required><button class="btn btn-primary w-100 py-2">Sign in</button></form>
+<p class="small text-muted mt-4 mb-0">Staff access only. Ask your administrator for an account.</p></div></body></html>

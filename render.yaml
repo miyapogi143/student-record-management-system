@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: student-record-management
+    runtime: python
+    buildCommand: "bash build.sh"
+    startCommand: "gunicorn student_records.wsgi:application"
+    autoDeploy: true
+    healthCheckPath: /accounts/login/
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: student-records-db
+          property: connectionString
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+databases:
+  - name: student-records-db
+    plan: free
